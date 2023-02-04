@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    initialization-mode: always
+    platform: postgres
+    url: jdbc:postgresql://localhost:5433/makemytag
+    username: makemytag
+    password: makemytag

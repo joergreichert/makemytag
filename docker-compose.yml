@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=r00dPwt
+      - APP_DB_USER=makemytag
+      - APP_DB_PASS=makemytag
+      - APP_DB_NAME=makemytag
+    volumes:
+      -  ${pgdata}:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-initdb.d/
+    ports:
+      - "5433:5432"
+
+  pgadmin4:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: a@bc.de
+      PGADMIN_DEFAULT_PASSWORD: abc123
+    ports:
+      - "8889:80"
